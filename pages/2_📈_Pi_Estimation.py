@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy
 from bokeh.plotting import figure
-
+import pandas as pd
 
 st.title("Estimating the value of $\pi$")
 
@@ -31,12 +31,21 @@ def main():
             yData.append(y)
 
     st.write("Value of pi: ", 4 * len(xData) / float(N))
-    p = figure(title="Pi estimation", x_axis_label="x", y_axis_label="y")
-    p.scatter(xData, yData, color="navy")
-    st.bokeh_chart(p, use_container_width=True)
-
+    # p = figure(title="Pi estimation", x_axis_label="x", y_axis_label="y")
+    # p.scatter(xData, yData, color="navy")
+    # st.bokeh_chart(p, use_container_width=True)
+    df = pd.DataFrame({'x':xData, 'y':yData})
+    st.scatter_chart(
+    df,
+    x='x',
+    y='y',
+    height= 700,
+    use_container_width  = True,
+)
 
 code = '''
+    import pandas as pd
+    
     xData = []
     yData = []
     for i in range(N):
@@ -44,7 +53,9 @@ code = '''
         y = numpy.random.uniform(-1, 1)
         if numpy.sqrt(x**2 + y**2) < 1:
             xData.append(x)
-            yData.append(y)'''
+            yData.append(y)
+        df = pd.DataFrame({'x':xData, 'y':yData})'''
+
 
 st.code(code, language='python')
 
