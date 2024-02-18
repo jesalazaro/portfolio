@@ -20,7 +20,7 @@ st.markdown("- Check if Points Fall Within the Quarter Circle: For each generate
 st.markdown("- Estimate $\pi$: Calculate the ratio of the number of points inside the quarter circle to the total number of generated points. This ratio is approximately equal to the ratio of the area of the quarter circle to the area of the square, which is π/4. Hence, multiplying this ratio by 4 gives an estimate of $\pi$.")
 
 def main():
-    N = st.slider("Number of dots?", 50, 5000, 100)
+    N = st.slider("Number of dots?", 50, 10000, 100)
     xData = []
     yData = []
     for i in range(N):
