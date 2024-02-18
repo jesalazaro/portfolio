@@ -85,7 +85,7 @@ code = """
 
     tmax = 10 * N
     particles = [[0] * tries for _ in range(tmax)]
-    Suma = [0] * tmax
+    Addition = [0] * tmax
     parti = [0] * tmax
 
     for v in range(1, tries + 1):
@@ -103,8 +103,8 @@ code = """
     probability_data = []
 
     for i in range(tmax):
-        Suma[i] = sum(particles[i][:tries])
-        Pro = Suma[i] / tries
+        Addition[i] = sum(particles[i][:tries])
+        Pro = Addition[i] / tries
         probability_data.append(Pro)"""
 
 st.code(code, language="python")
@@ -124,7 +124,7 @@ def main():
 
     tmax = 10 * N
     particles = [[0] * tries for _ in range(tmax)]
-    Suma = [0] * tmax
+    Addition = [0] * tmax
     parti = [0] * tmax
 
     for v in range(1, tries + 1):
@@ -142,8 +142,8 @@ def main():
     probability_data = []
 
     for i in range(tmax):
-        Suma[i] = sum(particles[i][:tries])
-        Pro = Suma[i] / tries
+        Addition[i] = sum(particles[i][:tries])
+        Pro = Addition[i] / tries
         probability_data.append(Pro)
         # st.write(f"{Pro}   {particles[i][0]}  {particles[i][1]}  {particles[i][2]}  {particles[i][3]}  {particles[i][4]}")
 

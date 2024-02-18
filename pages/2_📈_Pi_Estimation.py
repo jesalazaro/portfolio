@@ -20,7 +20,7 @@ st.markdown("- Check if Points Fall Within the Quarter Circle: For each generate
 st.markdown("- Estimate $\pi$: Calculate the ratio of the number of points inside the quarter circle to the total number of generated points. This ratio is approximately equal to the ratio of the area of the quarter circle to the area of the square, which is π/4. Hence, multiplying this ratio by 4 gives an estimate of $\pi$.")
 
 def main():
-    N = st.slider("Number of dots?", 50, 10000, 100)
+    N = st.slider("Number of dots?", 50, 10000, 1000)
     xData = []
     yData = []
     for i in range(N):
@@ -45,7 +45,7 @@ def main():
 
 code = '''
     import pandas as pd
-    
+    N = 1000
     xData = []
     yData = []
     for i in range(N):
@@ -54,7 +54,8 @@ code = '''
         if numpy.sqrt(x**2 + y**2) < 1:
             xData.append(x)
             yData.append(y)
-        df = pd.DataFrame({'x':xData, 'y':yData})'''
+        df = pd.DataFrame({'x':xData, 'y':yData})
+    piValue = 4 * len(xData) / float(N)'''
 
 
 st.code(code, language='python')
