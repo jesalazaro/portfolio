@@ -6,7 +6,7 @@ from bokeh.plotting import figure
 st.title("Estimating the value of pi")
 
 def main():
-    N = 10_000
+    N = st.slider("Number of dots?", 10, 10000, 25)
     xData = []
     yData = []
     for i in range(N):
@@ -17,8 +17,11 @@ def main():
             yData.append(y)
     print(xData)
     p = figure(title='Pi estimation', x_axis_label='x', y_axis_label='y')
-    p.scatter(xData ,yData , color='navy', alpha=0.5)
+    p.scatter(xData ,yData , color='navy')
     st.bokeh_chart(p, use_container_width=True)
+    st.write('Value of pi: ')
+    st.write(4 * len(xData)/float(N))
+
 
 if __name__ == "__main__":
     main()
