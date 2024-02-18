@@ -18,7 +18,7 @@ def main():
     print(xData)
     p = figure(title='Pi estimation', x_axis_label='x', y_axis_label='y')
     p.scatter(xData ,yData , color='navy', alpha=0.5)
-    st.bokeh_chart(p)
+    st.bokeh_chart(p, use_container_width=True)
 
 if __name__ == "__main__":
     main()
