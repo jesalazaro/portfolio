@@ -228,5 +228,5 @@ st.write("Hello Alligator!, This is a collection of interesting code for me, fee
 st.write("Current contents: ")
 st.markdown("- Order to disorder")
 st.markdown("- $\pi$ estimation")
-st.markdown("- $Random walk")
+st.markdown("- Random walk")
 
