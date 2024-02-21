@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy
-from bokeh.plotting import figure
 import pandas as pd
 import random
 
@@ -32,14 +31,28 @@ X_n = X_0 + S_1 + S_2 + ... + S_n
 \end{equation}"""
 )
 
-st.write("Where $X_n$ is the position after � n steps. $X_0$ is the initial position. $S_n$ represents the n-th step taken by the particle.")
+st.write("Where $X_n$ is the position after n steps. $X_0$ is the initial position. $S_n$ represents the n-th step taken by the particle.")
 st.write("the $S_n$ are independent and identically distributed random variables, typically following a Bernoulli distribution with equal probability for left and right steps.")
 
-st.write(r"""Properties of a one-dimensional random walk include the fact that it is recurrent (the particle will eventually return to any position with probability 
-1. and that the expected displacement grows linearly with the number of steps $(\(E[X_n] = n \cdot E[S_i]\))$ """)
+st.write(r"""Properties of a one-dimensional random walk include the fact that it is recurrent (the particle will eventually return to any position with probability 1. And that the expected displacement grows linearly with the number of steps """)
 
-st.write(r"""One interesting aspect of one-dimensional random walks is that although the expected displacement grows linearly, the mean square displacement grows proportionally to the square root of the number of steps $(\(E[X_n^2] = n \cdot E[S_i^2]\))$, leading to diffusive behavior. This diffusive behavior has connections to various physical phenomena, such as Brownian motion. """)
+st.latex(
+    r""" 
+\begin{equation}
+E[X_n] = n \cdot E[S_n]
+\end{equation}"""
+)
 
+st.write(r"""One interesting aspect of one-dimensional random walks is that although the expected displacement grows linearly, the mean square displacement grows proportionally to the square root of the number of steps""")
+
+st.latex(
+    r""" 
+\begin{equation}
+E[X_n^2] = n \cdot E[S_n^2]
+\end{equation}"""
+)
+
+st.write(r""" leading to diffusive behavior. This diffusive behavior has connections to various physical phenomena, such as Brownian motion. """)
 steps = st.slider("Number of steps?", 10, 1000, 25) 
 
 position = 0
