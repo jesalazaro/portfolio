@@ -11,7 +11,7 @@ In its simplest form, a one-dimensional random walk takes place on a line, where
 Random walks can be generalized to higher dimensions and can involve different types of steps with various probabilities. They are often used to model phenomena where randomness plays a significant role, such as the movement of particles in a fluid, the stock market fluctuations, or the behavior of a gambler.
 Random walks have interesting properties, such as the tendency to spread out over time, the possibility of returning to the starting point (depending on the dimensionality and other factors), and the emergence of patterns despite the randomness of individual steps. They are extensively studied in probability theory and have practical applications in modeling real-world processes.""")
 
-st.subtitle("One-dimensional random walk ")
+st.header("One-dimensional random walk ")
 
 st.write(r"""A one-dimensional random walk is a mathematical model that describes the movement of a particle along a straight line,
           where the particle can randomly move to the left or right with equal probability. """)
