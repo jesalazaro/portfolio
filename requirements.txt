@@ -2,3 +2,4 @@ streamlit
 pandas
 numpy
 bokeh==2.4.3
+tensorflow
