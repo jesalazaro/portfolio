@@ -1,56 +1,41 @@
 import streamlit as st
+import tensorflow as tf
 import pandas as pd
 import altair as alt
 from urllib.error import URLError
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
 
 st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
+st.title("Deep learning classification Cancer Data")
 
-st.markdown("# DataFrame Demo")
-st.sidebar.header("DataFrame Demo")
-st.write(
-    """This demo shows how to use `st.write` to visualize Pandas DataFrames.
-(Data courtesy of the [UN Data Explorer](http://data.un.org/Explorer.aspx).)"""
-)
+df_cancer = pd.read_csv("Datasets/Cancer_Data.csv")
+st.write(df_cancer)
 
+null_values = df_cancer.isnull().sum()
 
-@st.cache_data
-def get_UN_data():
-    AWS_BUCKET_URL = "http://streamlit-demo-data.s3-us-west-2.amazonaws.com"
-    df = pd.read_csv(AWS_BUCKET_URL + "/agri.csv.gz")
-    return df.set_index("Region")
+st.write(null_values)
+df_cancer=df_cancer.drop(['Unnamed: 32' ,'id'], axis=1)
 
 
-try:
-    df = get_UN_data()
-    countries = st.multiselect(
-        "Choose countries", list(df.index), ["China", "United States of America"]
-    )
-    if not countries:
-        st.error("Please select at least one country.")
-    else:
-        data = df.loc[countries]
-        data /= 1000000.0
-        st.write("### Gross Agricultural Production ($B)", data.sort_index())
+label_encoder= LabelEncoder()
+df_cancer['diagnosis']=label_encoder.fit_transform(df_cancer['diagnosis'])
 
-        data = data.T.reset_index()
-        data = pd.melt(data, id_vars=["index"]).rename(
-            columns={"index": "year", "value": "Gross Agricultural Product ($B)"}
-        )
-        chart = (
-            alt.Chart(data)
-            .mark_area(opacity=0.3)
-            .encode(
-                x="year:T",
-                y=alt.Y("Gross Agricultural Product ($B):Q", stack=None),
-                color="Region:N",
-            )
-        )
-        st.altair_chart(chart, use_container_width=True)
-except URLError as e:
-    st.error(
-        """
-        **This demo requires internet access.**
-        Connection error: %s
-    """
-        % e.reason
-    )
+test = df_cancer['diagnosis'].value_counts()
+
+st.write(test)
+
+
+# Calculate the correlation matrix
+correlation_matrix = df_cancer.corr()
+
+# Extract the correlation of features with the target variable
+correlation_cancer_target = correlation_matrix['diagnosis']
+
+# Filter correlations greater than 0.5
+corr_target_best = correlation_cancer_target[correlation_cancer_target > 0.5]
+
+st.write(corr_target_best)
+
+st.bar_chart(corr_target_best)

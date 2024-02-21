@@ -54,7 +54,7 @@ code = '''
         if numpy.sqrt(x**2 + y**2) < 1:
             xData.append(x)
             yData.append(y)
-        df = pd.DataFrame({'x':xData, 'y':yData})
+    df = pd.DataFrame({'x':xData, 'y':yData})
     piValue = 4 * len(xData) / float(N)'''
 
 

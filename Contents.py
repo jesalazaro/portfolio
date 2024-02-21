@@ -223,3 +223,9 @@ def data_frame_demo():
         )
 
 st.title("Portfolio Jaiver Salazar")
+
+st.write("Hello Alligator!, This is a collection of interesting code for me, feel free to check it out")
+st.write("Current contents: ")
+st.markdown("- Order to disorder")
+st.markdown("- $\pi$ estimation")
+

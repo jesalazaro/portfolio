@@ -5,13 +5,13 @@ import time
 
 st.title("Order to Disorder")
 st.write(
-    "One of the most important features of the macroscopic systems is the tendency to disorder. An example  of this trend can be seen with the addition of water ink; assuming we have an ink with the same density as water, we add it to the latter carefully, after some time we know that the ink and water mixed; if we have recorded this and we reproduce it backwards we will see that the movement random of the ink molecules is going to return towards the surface of the water, our intuitive thinking tells us How nature works and we will know that something is wrong. From our experience we can say that the trend natural movement of microscopic systems towards disorder defines the direction of time, the water-ink mixture can from being described as a microscopic state. If the process continues without interruption, we will notice that the mixture has become completely homogeneous, when that state arrives,we will be talking about a state of balance"
+    "One of the most important features of the macroscopic systems is the tendency to disorder. An example of this trend can be seen with the addition of ink in water, assuming we have an ink with the same density as water, we add it to the latter carefully, after some time we know that the ink and water mixed, if we have recorded this and we reproduce it backwards we will see that the movement random of the ink molecules is going to return towards the surface of the water, our intuitive thinking tells us how nature works and we will know that something is wrong. From our experience we can say that the trend natural movement of microscopic systems towards disorder defines the direction of time, the water-ink mixture can from being described as a microscopic state. If the process continues without interruption, we will notice that the mixture has become completely homogeneous, when that state arrives,we will be talking about a state of balance"
 )
 
 st.image("images/box-particles.png", caption="Box schema")
 
 st.write(
-    r"""Let us consider an ideal gas of $N$ identical particles in where the interaction between them is negligible, which is finds himself confined in a box and isolated in such a way  that is not affected by external influences, the box is divided It is made into two sections, and this one has a hole with a grate which can be moved to allow the gas to move from one place to another as illustrated in figure, initially $n$ particles are on the left side of thebox and $n′$ on the right side of the box such that $n + n^{\prime} = N$, when the grid is removed it leaves a  space, the probability that each particle passes through thehole is the same, since the movement of each particle is independent of the others, it is assumed as a condition that only one particle passes through the hole per unit of time."""
+    r"""Let us consider an ideal gas of $N$ identical particles in where the interaction between them is negligible, which is finds himself confined in a box and isolated in such a way  that is not affected by external influences, the box is divided It is made into two sections, and this one has a hole with a grate which can be moved to allow the gas to move from one place to another as illustrated in figure, initially $n$ particles are on the left side of the box and $n′$ on the right side of the box such that $n + n^{\prime} = N$, when the grid is removed it leaves a  space, the probability that each particle passes through thehole is the same, since the movement of each particle is independent of the others, it is assumed as a condition that only one particle passes through the hole per unit of time."""
 )
 st.latex(
     r"""
@@ -41,7 +41,7 @@ st.latex(
 
 st.write(
     r"""
-the next step of time we have $P (7, 3) =
+The next step of time we have $P (7, 3) =
 8/10P (8, 2) = 72/100$, corresponding to even movement
 of the eight particles to the left, the same
 consideration applies for $P (9, 3) = 10/10P (10, 2) +
