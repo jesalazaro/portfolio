@@ -53,6 +53,24 @@ E[X_n^2] = n \cdot E[S_n^2]
 )
 
 st.write(r""" leading to diffusive behavior. This diffusive behavior has connections to various physical phenomena, such as Brownian motion. """)
+
+codeOneDimension = """
+    steps = st.slider("Number of steps?", 10, 1000, 25) 
+
+    position = 0
+    trajectory = [position]
+
+    for _ in range(steps):
+        # Randomly choose whether to move left or right
+        step = random.choice([-1, 1])
+        position += step
+        trajectory.append(position)
+    """
+
+
+st.write("The code for one-dimensional random walk: ")
+st.code(codeOneDimension, language="python")
+
 steps = st.slider("Number of steps?", 10, 1000, 25) 
 
 position = 0
@@ -66,6 +84,43 @@ for _ in range(steps):
 
 
 st.line_chart(trajectory)
+
+
+st.header("Two-dimensional random walk")
+
+st.write(r"""In physics, a two-dimensional random walk is often used to model the stochastic motion of particles or objects in a plane. 
+         This can be applicable in various scenarios, such as describing the diffusion of particles on a surface, the movement of molecules in a liquid, or the motion of an object undergoing Brownian motion in two dimensions.""")
+
+st.write(r"""A random walk in two dimensions is a mathematical model that describes the movement of a point in a plane where, at each step, the point moves randomly in one of four possible directions: up, down, left, or right, each with equal probability.""")
+
+codeTwoDimension = """
+    x = 0
+    y = 0
+    trajectory_x = [x]
+    trajectory_y = [y]
+
+    for _ in range(stepsTwo):
+        # Randomly choose a direction (up, down, left, or right)
+        direction = random.choice(['up', 'down', 'left', 'right'])
+        
+        if direction == 'up':
+            y += 1
+        elif direction == 'down':
+            y -= 1
+        elif direction == 'left':
+            x -= 1
+        elif direction == 'right':
+            x += 1
+        
+        trajectory_x.append(x)
+        trajectory_y.append(y)
+
+    df = pd.DataFrame({'x':trajectory_x, 'y':trajectory_y})
+    """
+
+
+st.write("The code for two-dimensional random walk: ")
+st.code(codeTwoDimension, language="python")
 
 
 stepsTwo = st.slider("Number of steps two dimensions?", 10, 1000, 25)
