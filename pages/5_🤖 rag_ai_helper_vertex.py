@@ -109,8 +109,8 @@ if query and st.session_state.conversation:
     response = st.session_state.conversation({"question": query})
     
     # Display response
-    st.write("### Answer:")
-    st.write(response["answer"])
+    #st.write("### Answer:")
+    #st.write(response["answer"])
     
     # Update chat history
     st.session_state.chat_history.append({"role": "user", "content": query})
@@ -125,6 +125,6 @@ if query and st.session_state.conversation:
 # Display chat history
 if st.session_state.chat_history:
     st.write("### Chat History")
-    for message in st.session_state.chat_history[::-1]:
+    for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
             st.write(message["content"])
