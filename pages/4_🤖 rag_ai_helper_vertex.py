@@ -11,7 +11,7 @@ import PyPDF2
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel
 
-credentials = st.json.loads(st.secrets["GCP"]["credentials"])
+credentials = json.loads(st.secrets["GCP"]["credentials"])
 
 GCP_CREDENTIALS_PATH = "/tmp/gcp_credentials.json"
 with open(GCP_CREDENTIALS_PATH, "w") as f:
