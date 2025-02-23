@@ -11,6 +11,8 @@ import PyPDF2
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel
 
+st.title("📄 RAG with Vertex AI and GCP")
+
 credentials = json.loads(st.secrets["GCP"]["credentials"])
 
 GCP_CREDENTIALS_PATH = "/tmp/gcp_credentials.json"
@@ -24,8 +26,6 @@ PROJECT_ID = st.secrets["GCP"]["project_id"]
 LOCATION = st.secrets["GCP"]["location"]
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
-# Streamlit configuration
-st.set_page_config(page_title="RAG with Vertex AI and GCP", layout="wide")
 
 # Initialize LangChain components
 @st.cache_resource
