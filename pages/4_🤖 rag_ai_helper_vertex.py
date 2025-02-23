@@ -1,3 +1,5 @@
+import json
+import os
 import streamlit as st
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_vertexai import VertexAIEmbeddings
@@ -8,6 +10,14 @@ from langchain_google_vertexai import VertexAI
 import PyPDF2
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel
+
+credentials = st.json.loads(st.secrets["GCP"]["credentials"])
+
+GCP_CREDENTIALS_PATH = "/tmp/gcp_credentials.json"
+with open(GCP_CREDENTIALS_PATH, "w") as f:
+    json.dump(credentials, f)
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GCP_CREDENTIALS_PATH
 
 # Vertex AI initialization
 PROJECT_ID = st.secrets["GCP"]["project_id"]
