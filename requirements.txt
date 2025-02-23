@@ -4,3 +4,10 @@ numpy
 bokeh
 tensorflow
 scikit-learn
+vertexai
+google-auth
+google-cloud-aiplatform
+numpy
+faiss-cpu
+PyMuPDF
+PyPDF2
