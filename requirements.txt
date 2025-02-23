@@ -11,3 +11,5 @@ numpy
 faiss-cpu
 PyMuPDF
 PyPDF2
+langchain 
+langchain-google-vertexai 
