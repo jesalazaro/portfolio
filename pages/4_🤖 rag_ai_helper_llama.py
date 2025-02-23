@@ -41,7 +41,7 @@ if uploaded_file:
 
     st.success("Document indexed. Ask a question!")
 
-    query = st.text_input("Ask a question about the document:")
+    query = st.chat_input("Ask a question about the document:")
 
     if query:
         # Get the most relevant chunk (simple nearest neighbor search)

@@ -102,7 +102,7 @@ if uploaded_file:
     st.success("Document indexed. Ask a question!")
 
 # Query interface
-query = st.text_input("Ask a question about the document:")
+query = st.chat_input("Ask a question about the document:")
 
 if query and st.session_state.conversation:
     # Get response from conversation chain
